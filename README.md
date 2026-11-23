@@ -9,8 +9,9 @@ https://www.bubbletruckwindowcleaning.com/
 
 ## What's inside
 - `index.html` — the complete single-page homepage
-- `css/style.css` — design system + all styles (CSS variables, responsive, 701 lines)
-- `js/script.js` — mobile nav, Google-reviews carousel, animated stats, back-to-top (vanilla JS, no dependencies)
+- `css/style.css` → `css/style.min.css` — design system + all styles (minified for production)
+- `js/script.js` → `js/script.min.js` — mobile nav, Google-reviews carousel, animated stats, back-to-top (minified)
+- `assets/fonts/` — self-hosted Montserrat & Open Sans (woff2, OFL) — zero third-party requests for fonts
 - `assets/logo/` — original brand mark (background removed) + favicons
 - `assets/images/` — photography; the hero uses the owner-provided, logo-wrapped Bubble Truck F-150 photo (hero-bubble-truck-f150.jpg), plus service imagery and real business photos
 - `.nojekyll` — GitHub Pages compatibility
@@ -39,6 +40,11 @@ https://www.bubbletruckwindowcleaning.com/
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
+
+## Performance
+Self-hosted fonts (no Google Fonts request), WebP imagery, minified CSS/JS,
+preloaded hero image + critical fonts, `defer`ed script, no frameworks,
+no runtime dependencies. Estimated first-load payload ≈ 350 KB.
 
 ## Deployment (GitHub Pages)
 Repository Settings → Pages → Deploy from branch → `main` (or the working branch) → `/ (root)`. The included `.nojekyll` keeps paths intact. All asset paths are relative.
