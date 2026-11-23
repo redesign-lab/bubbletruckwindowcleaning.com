@@ -189,6 +189,23 @@
     }
   }
 
+  /* ── Click-to-play YouTube intro video ─────────────────── */
+  var facades = document.querySelectorAll('.video-facade');
+  facades.forEach(function (facade) {
+    facade.addEventListener('click', function () {
+      var id = facade.getAttribute('data-video-id');
+      var start = facade.getAttribute('data-start') || '0';
+      if (!id) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&start=' + encodeURIComponent(start) + '&rel=0';
+      iframe.title = 'Bubble Truck Window Cleaning — Introduction video';
+      iframe.setAttribute('allow', 'accelerated-download; autoplay; encrypted-media; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      facade.replaceWith(iframe);
+    });
+  });
+
   /* ── Footer year ──────────────────────────────────────── */
   var yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

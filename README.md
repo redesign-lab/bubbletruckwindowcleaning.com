@@ -20,7 +20,7 @@ https://www.bubbletruckwindowcleaning.com/
 1. Top utility bar (address · 24/7 · three phone lines)
 2. Sticky header with primary navigation + Free Estimate CTA
 3. Hero — full-bleed background of the logo-wrapped Bubble Truck F-150 photo (owner-provided) + "Serving King and Pierce Counties — WE LOVE PETS!" + Instant Estimate / Book Online Now
-4. Professional Services — Window Cleaning · Gutter Cleaning · Christmas Lights
+4. Professional Services — Window Cleaning · Gutter Cleaning · Christmas Lights + click-to-play YouTube intro video (facade pattern, no eager YouTube JS)
 5. Google Reviews — 226 reviews, 5★ (genuine, verified via Trustindex)
 6. From the Blog — three latest posts (original thumbnails)
 7. Trusted in King and Pierce Counties for 25+ Years — Why Choose Us · By the Numbers · Stephanie B. testimonial
