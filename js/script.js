@@ -103,7 +103,7 @@
   if (track) {
     track.innerHTML = REVIEWS.map(function (review, index) {
       var initial = escapeHtml(review.name.charAt(0).toUpperCase());
-      var avatarClass = index % 3 === 1 ? 'review-card__avatar review-card__avatar--pink' : 'review-card__avatar';
+      var avatarClass = index % 3 === 1 ? 'review-card__avatar review-card__avatar--accent' : 'review-card__avatar';
       var stars = STAR + STAR + STAR + STAR + STAR;
       return (
         '<article class="review-card" aria-label="Review by ' + escapeHtml(review.name) + '">' +
