@@ -12,13 +12,13 @@ https://www.bubbletruckwindowcleaning.com/
 - `css/style.css` — design system + all styles (CSS variables, responsive, 701 lines)
 - `js/script.js` — mobile nav, Google-reviews carousel, animated stats, back-to-top (vanilla JS, no dependencies)
 - `assets/logo/` — original brand mark (background removed) + favicons
-- `assets/images/` — optimized photography (hero, services, real business van & owner photos)
+- `assets/images/` — optimized photography; the hero uses the original logo-wrapped Bubble Truck van photo (like the original site), plus service imagery and real business photos
 - `.nojekyll` — GitHub Pages compatibility
 
 ## Sections (same sections & copy as the original homepage)
 1. Top utility bar (address · 24/7 · three phone lines)
 2. Sticky header with primary navigation + Free Estimate CTA
-3. Hero — "Serving King and Pierce Counties — WE LOVE PETS!" + Instant Estimate / Book Online Now
+3. Hero — full-bleed background of the original logo-wrapped Bubble Truck van (same treatment as the original site) + "Serving King and Pierce Counties — WE LOVE PETS!" + Instant Estimate / Book Online Now
 4. Professional Services — Window Cleaning · Gutter Cleaning · Christmas Lights
 5. Google Reviews — 226 reviews, 5★ (genuine, verified via Trustindex)
 6. From the Blog — three latest posts (original thumbnails)

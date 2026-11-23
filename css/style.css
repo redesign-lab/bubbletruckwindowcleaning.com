@@ -193,47 +193,53 @@ button { font: inherit; cursor: pointer; }
 
 /* ══════════════════════ HERO ══════════════════════ */
 .hero {
-  position: relative; overflow: hidden;
-  background:
-    radial-gradient(1200px 520px at 85% -10%, rgba(1,99,173,.45), transparent 60%),
-    radial-gradient(700px 500px at -15% 110%, rgba(245,94,212,.16), transparent 55%),
-    linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 55%, var(--navy-3) 100%);
-  color: #fff;
+  position: relative; overflow: hidden; color: #fff;
+  display: flex; flex-direction: column;
+  min-height: clamp(560px, calc(100svh - var(--topbar-h) - var(--header-h)), 840px);
+  background-image:
+    linear-gradient(90deg, rgba(8,31,46,.95) 0%, rgba(8,31,46,.88) 32%, rgba(8,31,46,.60) 55%, rgba(8,31,46,.22) 78%, rgba(8,31,46,.06) 100%),
+    linear-gradient(0deg, var(--navy-3) 0%, rgba(8,31,46,.62) 13%, rgba(8,31,46,0) 40%),
+    linear-gradient(180deg, rgba(8,31,46,.42) 0%, rgba(8,31,46,0) 22%),
+    url("../assets/images/hero-bubble-truck-van.jpg");
+  background-size: auto, auto, auto, cover;
+  background-position: center, center, center, 63% 52%;
+  background-repeat: no-repeat;
 }
 .hero__bubbles { position: absolute; inset: 0; pointer-events: none; }
 .bubble {
   position: absolute; border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,.22);
-  background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.42), rgba(255,255,255,.05) 58%, transparent 72%);
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.45), rgba(255,255,255,.06) 58%, transparent 72%);
   animation: bubbleFloat 11s ease-in-out infinite;
 }
-.bubble--1 { width: 120px; height: 120px; top: 12%; left: 44%; }
-.bubble--2 { width: 54px; height: 54px; top: 66%; left: 2%; animation-delay: -3s; }
-.bubble--3 { width: 34px; height: 34px; top: 18%; left: 6%; animation-delay: -6s; }
-.bubble--4 { width: 84px; height: 84px; bottom: 20%; right: 4%; animation-delay: -2s; opacity:.8 }
-.bubble--5 { width: 26px; height: 26px; top: 32%; right: 38%; animation-delay: -8s; }
-.bubble--6 { width: 44px; height: 44px; bottom: 34%; left: 47%; animation-delay: -5s; opacity:.7 }
-@keyframes bubbleFloat { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-24px) translateX(10px); } }
+.bubble--2 { width: 54px; height: 54px; top: 62%; left: 42%; animation-delay: -3s; }
+.bubble--3 { width: 34px; height: 34px; top: 15%; left: 38%; animation-delay: -6s; }
+.bubble--5 { width: 26px; height: 26px; top: 28%; left: 46%; animation-delay: -8s; }
+.bubble--6 { width: 44px; height: 44px; bottom: 30%; left: 47%; animation-delay: -5s; opacity:.75 }
+@keyframes bubbleFloat { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-22px) translateX(9px); } }
 
 .hero__grid {
-  position: relative; display: grid; grid-template-columns: 1.02fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem); align-items: center;
-  padding: clamp(2.25rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  position: relative; z-index: 1; flex: 1; align-content: center;
+  display: grid; grid-template-columns: minmax(0, 46rem);
+  padding: clamp(2.5rem, 6vh, 4.5rem) 0 clamp(.5rem, 1.5vw, 1rem);
 }
+.hero__copy { max-width: 46rem; }
 
 .hero__title {
   font-family: var(--font-display); font-weight: 900; letter-spacing: -.03em;
-  font-size: clamp(2.55rem, 6.4vw, 4.15rem); line-height: 1.02; color: #fff; margin-bottom: 1.35rem;
+  font-size: clamp(2.6rem, 6.6vw, 4.3rem); line-height: 1.02; color: #fff; margin-bottom: 1.3rem;
+  text-shadow: 0 4px 34px rgba(0,0,0,.35);
 }
 .hero__title-accent { position: relative; display: inline-block; color: #fff; padding-bottom: .18em; }
 .hero__stroke { position: absolute; left: -2%; bottom: -.06em; width: 104%; height: .32em; }
 
-.hero__lead { font-size: clamp(1rem, 1.4vw, 1.13rem); color: #c3d5df; max-width: 34rem; margin-bottom: 1.7rem; line-height: 1.65; }
+.hero__lead { font-size: clamp(1rem, 1.4vw, 1.14rem); color: #d9e7ee; max-width: 34rem; margin-bottom: 1.7rem; line-height: 1.65; text-shadow: 0 2px 16px rgba(0,0,0,.35); }
 .hero__lead strong { color: #fff; font-weight: 700; }
 
-.hero__ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.6rem; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; }
+.btn--estimate.btn--lg { box-shadow: 0 14px 34px rgba(245,94,212,.42), 0 2px 0 rgba(0,0,0,.18); }
 
-.hero__callrow { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+.hero__callrow { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin-bottom: 1.35rem; }
 .hero__call { display: inline-flex; align-items: center; gap: .75rem; }
 .hero__call-icon {
   width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
@@ -245,46 +251,32 @@ button { font: inherit; cursor: pointer; }
   70% { box-shadow: 0 0 0 14px rgba(245,94,212,0); }
   100% { box-shadow: 0 0 0 0 rgba(245,94,212,0); }
 }
-.hero__call small { display: block; font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: #8ba6b5; font-weight: 700; }
-.hero__call strong { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.35rem, 2.6vw, 1.7rem); letter-spacing: -.02em; color: #fff; }
+.hero__call small { display: block; font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: #b8cdd8; font-weight: 700; }
+.hero__call strong { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.35rem, 2.6vw, 1.75rem); letter-spacing: -.02em; color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.4); }
 .hero__call:hover strong { color: var(--pink-soft); }
-.hero__altrevs { font-size: .82rem; color: #9db4c2; display: flex; gap: .5rem; align-items: center; }
+.hero__altrevs { font-size: .82rem; color: #cfe0ea; display: flex; gap: .5rem; align-items: center; }
 .hero__altrevs a:hover { color: #fff; text-decoration: underline; }
 
-.hero__proof { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); max-width: max-content; }
+.hero__proof { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem; background: rgba(8,31,46,.6); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius); max-width: max-content; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .hero__stars { display: flex; gap: 2px; flex: 0 0 auto; }
-.hero__proof-text { font-size: .78rem; color: #b8cdd8; line-height: 1.45; }
+.hero__proof-text { font-size: .78rem; color: #c9d9e2; line-height: 1.45; }
 .hero__proof-text strong { color: #fff; display: block; font-size: .85rem; }
 
-.hero__visual { position: relative; display: grid; }
-.hero__photo {
-  border-radius: var(--radius-lg); overflow: hidden; border: 6px solid rgba(255,255,255,.12);
-  box-shadow: var(--shadow-lg); aspect-ratio: 1312 / 1000;
+.hero__caption {
+  position: relative; z-index: 1; align-self: center;
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin: 0 auto .85rem; padding: .38rem 1rem; max-width: calc(100% - 2rem);
+  font-size: .68rem; font-weight: 600; letter-spacing: .03em; color: #e8f1f6;
+  background: rgba(8,31,46,.72); border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.hero__caption::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); flex: 0 0 auto; }
 
-.hero__truck {
-  position: absolute; left: -1.4rem; bottom: -2.2rem; width: clamp(150px, 34%, 215px);
-  background: #fff; padding: .45rem .45rem .6rem; border-radius: var(--radius-sm);
-  box-shadow: var(--shadow); transform: rotate(-3.5deg);
-  border: 1px solid var(--line);
-}
-.hero__truck img { border-radius: 8px; aspect-ratio: 4/3; object-fit: cover; }
-.hero__truck figcaption { font-size: .6rem; color: var(--muted); text-align: center; padding-top: .4rem; font-weight: 600; line-height: 1.35; }
-
-.hero__chip {
-  position: absolute; top: -1.1rem; right: -.75rem;
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--pink); color: #33102a; font-family: var(--font-display);
-  font-weight: 900; font-size: .72rem; letter-spacing: .05em; text-transform: uppercase;
-  border-radius: 999px; padding: .55rem 1rem; box-shadow: 0 12px 28px rgba(245,94,212,.4);
-}
-
-.hero__trustbar { border-top: 1px solid rgba(255,255,255,.12); background: rgba(8,31,46,.45); }
+.hero__trustbar { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.14); background: rgba(8,31,46,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .hero__trustbar-inner {
   display: flex; align-items: center; gap: 1.1rem; justify-content: space-between;
   padding: .75rem 0; overflow-x: auto; scrollbar-width: none; white-space: nowrap;
-  font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #a9c0cd;
+  font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #b8cdd8;
 }
 .hero__trustbar-inner::-webkit-scrollbar { display: none; }
 .hero__trustbar-inner i { flex: 0 0 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--pink); opacity: .8; }
@@ -606,9 +598,7 @@ body { padding-bottom: 0; }
 }
 @media (max-width: 1024px) {
   .topbar__phone--secondary { display: none; }
-  .hero__grid { grid-template-columns: 1fr; padding-top: 2rem; gap: 2.5rem; }
-  .hero__visual { max-width: 560px; }
-  .hero__photo { aspect-ratio: 16 / 11; }
+  .hero__grid { grid-template-columns: 1fr; }
   .hero__trustbar-inner { justify-content: flex-start; }
   .services__grid, .blog__grid { grid-template-columns: repeat(2, 1fr); }
   .services__head { grid-template-columns: 1fr; align-items: start; gap: 1.25rem; }
@@ -633,12 +623,20 @@ body { padding-bottom: 0; }
   .section { padding-block: 3.25rem; }
 
   /* Hero — mobile polish */
+  .hero {
+    min-height: 0;
+    background-image:
+      linear-gradient(180deg, rgba(8,31,46,.86) 0%, rgba(8,31,46,.8) 45%, rgba(8,31,46,.88) 100%),
+      url("../assets/images/hero-bubble-truck-van.jpg");
+    background-size: auto, cover;
+    background-position: center, 68% 42%;
+  }
+  .hero__grid { padding: 2.5rem 0 1.5rem; }
   .hero__ctas { display: grid; grid-template-columns: 1fr; }
   .hero__ctas .btn { width: 100%; white-space: normal; text-align: center; }
-  .hero__proof { flex-direction: row; max-width: 100%; padding: .65rem .8rem; }
+  .hero__proof { max-width: 100%; padding: .65rem .8rem; }
   .hero__proof-text { font-size: .72rem; }
-  .hero__truck { left: .25rem; bottom: -1.75rem; width: 128px; }
-  .hero__chip { right: .25rem; top: -0.9rem; font-size: .62rem; }
+  .hero__caption { font-size: .62rem; padding: .35rem .85rem; text-align: center; border-radius: 1rem; }
   .hero__callrow { gap: .8rem; }
   .hero__altrevs { font-size: .76rem; }
 
@@ -690,7 +688,7 @@ body { padding-bottom: 0; }
 
 /* Wide desktop refinement */
 @media (min-width: 1440px) {
-  .hero__grid { padding-block: 4.5rem 5.25rem; }
+  .hero__grid { padding-block: 3.5rem 1.25rem; }
   .section { padding-block: 6.5rem; }
 }
 
