@@ -26,7 +26,7 @@ https://www.bubbletruckwindowcleaning.com/
 7. Trusted in King and Pierce Counties for 25+ Years — Why Choose Us · By the Numbers · Stephanie B. testimonial
 8. Washington State Business License showcase (original license document, hotlinked)
 9. Need an Estimate? — quote CTA + full contact details + service areas
-10. Footer + legal links (Privacy · SMS/Marketing · Terms)
+10. Footer — live Google Map embed (same place as the original site) + "Find Us" card with one-click Open in Maps + legal links (Privacy · SMS/Marketing · Terms)
 11. Floating call button (desktop) + sticky Call/Estimate action bar (mobile)
 
 ## Brand system extracted from the original business
