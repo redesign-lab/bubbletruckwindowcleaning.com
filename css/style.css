@@ -286,31 +286,38 @@ button { font: inherit; cursor: pointer; }
 /* Video — click-to-play facade */
 .services__video { margin-top: 1.5rem; }
 .video-facade {
-  position: relative; display: block; width: 100%; overflow: hidden;
-  border: none; border-radius: var(--radius); aspect-ratio: 16 / 9;
-  box-shadow: var(--shadow); background: var(--navy-3); cursor: pointer;
-  border: 1px solid rgba(255,255,255,.35); transition: transform .3s ease, box-shadow .3s ease;
+  position: relative; display: block; width: 100%; overflow: hidden; text-decoration: none;
+  border-radius: var(--radius); aspect-ratio: 16 / 9;
+  box-shadow: var(--shadow), 0 0 0 4px #fff; background: var(--navy-3); cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease; border: 1px solid rgba(255,255,255,.4);
 }
-.video-facade:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.video-facade:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.video-facade img { width: 100%; height: 100%; object-fit: cover; }
+.video-facade:hover { transform: translateY(-5px) scale(1.01); box-shadow: var(--shadow-lg), 0 0 0 4px #fff; }
+.video-facade:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.video-facade img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.video-facade:hover img { transform: scale(1.04); }
 .video-facade__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,31,46,.05) 40%, rgba(8,31,46,.78) 100%); transition: background .3s ease; }
 .video-facade:hover .video-facade__overlay { background: linear-gradient(180deg, rgba(8,31,46,.15) 20%, rgba(8,31,46,.82) 100%); }
 .video-facade__play {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 68px; height: 68px; border-radius: 50%;
+  width: 70px; height: 70px; border-radius: 50%;
   display: grid; place-items: center; padding-left: 4px;
   background: var(--accent); color: var(--on-accent);
-  box-shadow: 0 12px 34px rgba(245,158,11,.5), 0 0 0 6px rgba(255,255,255,.25);
-  transition: transform .25s ease;
+  box-shadow: 0 14px 36px rgba(245,158,11,.5), 0 0 0 6px rgba(255,255,255,.28);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: playPulse 2.6s ease-in-out infinite;
 }
-.video-facade:hover .video-facade__play { transform: translate(-50%,-50%) scale(1.12); }
-.video-facade__badge {
-  position: absolute; left: .9rem; bottom: .8rem;
-  font-family: var(--font-display); font-weight: 800; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-  color: #fff; background: rgba(8,31,46,.66); border: 1px solid rgba(255,255,255,.3);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  padding: .4rem .8rem; border-radius: 999px;
+@keyframes playPulse {
+  0%, 100% { box-shadow: 0 14px 36px rgba(245,158,11,.5), 0 0 0 6px rgba(255,255,255,.28), 0 0 0 0 rgba(245,158,11,.45); }
+  60% { box-shadow: 0 14px 36px rgba(245,158,11,.5), 0 0 0 6px rgba(255,255,255,.28), 0 0 0 22px rgba(245,158,11,0); }
+}
+.video-facade:hover .video-facade__play { transform: translate(-50%,-50%) scale(1.14); animation: none; }
+.video-facade__chip {
+  position: absolute; left: .85rem; bottom: .8rem;
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: var(--font-display); font-weight: 800; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; background: rgba(8,31,46,.72); border: 1px solid rgba(255,255,255,.32);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  padding: .38rem .75rem .38rem .45rem; border-radius: 999px;
 }
 .services__video iframe { width: 100%; height: 100%; aspect-ratio: 16 / 9; display: block; border: none; border-radius: var(--radius); box-shadow: var(--shadow); }
 .services__videonote { margin-top: .65rem; font-size: .8rem; color: var(--muted); }
@@ -669,6 +676,8 @@ body { padding-bottom: 0; }
   .hero__proof-text { font-size: .72rem; }
   .hero__callrow { gap: .75rem 1rem; margin-bottom: 1.25rem; }
   .hero__altrevs { padding-left: 0; border-left: none; font-size: .78rem; flex-basis: 100%; padding-top: .15rem; }
+  .video-facade__play { width: 60px; height: 60px; }
+  .video-facade__chip { font-size: .58rem; padding: .32rem .65rem .32rem .4rem; }
 
   /* License */
   .license__media { padding: 1.25rem; }
