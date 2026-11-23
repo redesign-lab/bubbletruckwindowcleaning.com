@@ -134,6 +134,7 @@
       var startAuto = function () {
         stopAuto();
         autoTimer = window.setInterval(function () {
+          if (document.hidden) return;
           var maxScroll = track.scrollWidth - track.clientWidth - 8;
           if (track.scrollLeft >= maxScroll) {
             track.scrollTo({ left: 0, behavior: 'smooth' });
@@ -187,6 +188,26 @@
     } else {
       counters.forEach(animateCounter);
     }
+  }
+
+  /* ── Intro video: play inline on the page (graceful fallback to YouTube) ── */
+  var introFacade = document.querySelector('.video-facade[data-video-id]');
+  if (introFacade) {
+    introFacade.addEventListener('click', function (event) {
+      event.preventDefault();
+      var id = introFacade.getAttribute('data-video-id');
+      var start = introFacade.getAttribute('data-start') || '0';
+      if (!id) return;
+      var iframe = document.createElement('iframe');
+      iframe.className = 'services__videoframe';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+        '?autoplay=1&rel=0&modestbranding=1&start=' + encodeURIComponent(start);
+      iframe.title = 'Bubble Truck Window Cleaning — Introduction video';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      introFacade.replaceWith(iframe);
+    });
   }
 
   /* ── Footer year ──────────────────────────────────────── */
